@@ -24,23 +24,22 @@ var schema = {
       dynamic: 'strict',
       properties: {
         name: {
-          type: 'string',
-          analyzer: 'keyword',
+          type: 'keyword'
         },
         unit: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasUnit',
         },
         number: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasHousenumber',
         },
         street: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasStreet',
         },
         zip: {
-          type: 'string',
+          type: 'text',
           analyzer: 'peliasZip',
         }
       }
@@ -134,7 +133,7 @@ var schema = {
       path_match: 'name.*',
       match_mapping_type: 'string',
       mapping: {
-        type: 'string',
+        type: 'text',
         analyzer: 'peliasIndexOneEdgeGram',
         fielddata : {
           loading: 'eager_global_ordinals'
@@ -146,7 +145,7 @@ var schema = {
       path_match: 'phrase.*',
       match_mapping_type: 'string',
       mapping: {
-        type: 'string',
+        type: 'text',
         analyzer: 'peliasPhrase',
         fielddata : {
           loading: 'eager_global_ordinals'
@@ -156,9 +155,6 @@ var schema = {
   }],
   _source: {
     excludes : ['shape','phrase']
-  },
-  _all: {
-    enabled: false
   },
   dynamic: 'strict'
 };
