@@ -135,9 +135,8 @@ var schema = {
       mapping: {
         type: 'text',
         analyzer: 'peliasIndexOneEdgeGram',
-        fielddata : {
-          loading: 'eager_global_ordinals'
-        }
+        fielddata : 'true',
+        eager_global_ordinals: 'true'
       }
     },
   },{
@@ -147,9 +146,8 @@ var schema = {
       mapping: {
         type: 'text',
         analyzer: 'peliasPhrase',
-        fielddata : {
-          loading: 'eager_global_ordinals'
-        }
+        fielddata : 'true',
+        eager_global_ordinals: 'true'
       }
     }
   }],
